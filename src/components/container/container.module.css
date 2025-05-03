@@ -24,3 +24,9 @@ body {
     align-items: center;
     background: linear-gradient(to bottom right, #4a00e0, #8e2de2);
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

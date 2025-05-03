@@ -1,15 +1,23 @@
 import styles from './input.module.css';
 
-const Input = ({ value, onChange, onAdd }) => {
+const Input = ({ editText, setEditText, editTaskId, addTask, saveEdit }) => {
   return (
     <div className={styles.input}>
       <input
         type="text"
         placeholder="Task to be done..."
-        value={value}
-        onChange={onChange}
+        value={editText}
+        onChange={(e) => setEditText(e.target.value)}
       />
-      <button onClick={onAdd}>Add</button>
+      <button onClick={() => {
+        if (editTaskId !== null) {
+          saveEdit();
+        } else {
+          addTask();
+        }
+      }}>
+        {editTaskId !== null ? 'Save' : 'Add'}
+      </button>
     </div>
   );
 };

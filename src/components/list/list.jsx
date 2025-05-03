@@ -1,6 +1,6 @@
 import styles from './list.module.css';
 
-const List = ({ tasks, deleteTask, toggleTask }) => {
+const List = ({ tasks, deleteTask, toggleTask, startEditing }) => {
   return (
     <div className={styles.tasklist}>
       {tasks.map(task => (
@@ -17,6 +17,7 @@ const List = ({ tasks, deleteTask, toggleTask }) => {
           <button className={styles.delete} onClick={() => deleteTask(task.id)}>
             Delete
           </button>
+          <button onClick={() => startEditing(task)}>Edit</button>
         </li>
       ))}
     </div>

@@ -1,19 +1,39 @@
 import styles from './container.module.css';
 import Input from '../input/input';
 import List from '../list/list';
+import FilterButtons from '../buttons/buttons';
 
-const Container = ({ tasks, inputValue, setInputValue, addTask, deleteTask, toggleTask }) => {
+const Container = ({
+  tasks,
+  addTask,
+  deleteTask,
+  toggleTask,
+  editTaskId,
+  editText,
+  setEditText,
+  startEditing,
+  saveEdit,
+  filter,
+  setFilter
+}) => {
   return (
     <div className={styles.container}>
       <Input
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onAdd={addTask}
+        editText={editText}
+        setEditText={setEditText}
+        editTaskId={editTaskId}
+        addTask={addTask}
+        saveEdit={saveEdit}
+      />
+      <FilterButtons
+        filter={filter}
+        setFilter={setFilter}
       />
       <List
         tasks={tasks}
         deleteTask={deleteTask}
         toggleTask={toggleTask}
+        startEditing={startEditing}
       />
     </div>
   );
